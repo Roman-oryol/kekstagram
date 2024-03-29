@@ -9,14 +9,17 @@ const PHOTO_COUNT = 25;
 // Набор описаний фотографий
 
 const DESCRIPTIONS = [
-  'Описание 1',
-  'Описание 2',
-  'Описание 3',
-  'Описание 4',
-  'Описание 5',
-  'Описание 6',
-  'Описание 7',
-  'Описание 8',
+  'Летний чил на югах. #тай #отдых #лето #чил #travel #travelgram #summergram #chill',
+  'Тестим новую камеру! #camera #test #new #newcameratest #pic #photo #instaphoto',
+  'Затусили с друзьями на море #laptevsea #north #northeastpassage',
+  'Как же круто тут кормят #food #foodgram #instafood #delicious #yummy',
+  'Отдыхаем... #chill #relax #group #photo',
+  'Цените каждое мгновенье. Цените тех, кто рядом с вами и отгоняйте все сомненья. Не обижайте всех словами......',
+  'Вот это тачка! #wow #car #carwow #drive',
+  '#fun #party #cool #young',
+  'Господи, это такая милота, я сейчас умру от нежности, у меня закшалил мимимиметр',
+  'Хорошо, когда в жизни есть #друзья, которые вместе со мной могут зайти в #барнарубинштейна и бахнуть #пивка',
+  'Норм',
 ];
 
 // Набор предложений для генерации сообщений в комментариях
@@ -45,40 +48,6 @@ const NAMES = [
 ];
 
 // Функция создания описаний фотографий
-
-// const createPhotos = () => {
-//   const MAX_NUMBER_OF_COMMENTS = 5;
-//   const NUMBER_OF_DESCRIPTIONS = 25;
-
-//   const descriptionIds = getNonRepeatNumber(NUMBER_OF_DESCRIPTIONS, 1, NUMBER_OF_DESCRIPTIONS);
-//   const photoNumbers = getNonRepeatNumber(NUMBER_OF_DESCRIPTIONS, 1, NUMBER_OF_DESCRIPTIONS);
-
-//   // Создание набора коментариев с случайным количеством
-//   const getComments = (maxComments) => {
-//     const numberOfComments = getRandomPositiveInteger(1, maxComments);
-//     const commentIds = getNonRepeatNumber(numberOfComments, 1, 1000);
-
-//     const comments = commentIds.map((id) => ({
-//       id: id,
-//       avatar: `img/avatar-${getRandomPositiveInteger(1, 6)}.svg`,
-//       message: getRandomArrayElement(MESSAGES),
-//       name: getRandomArrayElement(NAMES)
-//     }));
-//     return comments;
-//   };
-
-//   const descriptionsPhotographs = descriptionIds.map((id, index) => ({
-//     id: id,
-//     url: `photos/${photoNumbers[index]}.jpg`,
-//     description: getRandomArrayElement(DESCRIPTIONS),
-//     likes: getRandomPositiveInteger(15, 200),
-//     comments: getComments(MAX_NUMBER_OF_COMMENTS),
-//   }));
-
-//   return descriptionsPhotographs;
-// };
-
-// вариант 2
 
 const generatePhotoId = createRandomNumberGenerator(1, PHOTO_COUNT);
 const genetatePhotoNumber = createRandomNumberGenerator(1, PHOTO_COUNT);
