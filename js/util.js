@@ -61,4 +61,16 @@ function createRandomNumberGenerator (min, max) {
 const checkStringLength = (string, length) => string.length <= length;
 checkStringLength('Проверочная строка', 10); // Временно, чтобы не ругался линтер!!!
 
-export {getRandomPositiveInteger, getRandomArrayElement, createRandomNumberGenerator};
+// Функция удаления всех дочерних элементов родителя
+const removeChild = (parentElement) => {
+  while (parentElement.firstChild) {
+    parentElement.removeChild(parentElement.firstChild);
+  }
+};
+
+export {
+  getRandomPositiveInteger,
+  getRandomArrayElement,
+  createRandomNumberGenerator,
+  removeChild
+};

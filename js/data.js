@@ -6,8 +6,6 @@ import {
 
 const PHOTO_COUNT = 25;
 
-// Набор описаний фотографий
-
 const DESCRIPTIONS = [
   'Летний чил на югах. #тай #отдых #лето #чил #travel #travelgram #summergram #chill',
   'Тестим новую камеру! #camera #test #new #newcameratest #pic #photo #instaphoto',
@@ -22,8 +20,6 @@ const DESCRIPTIONS = [
   'Норм',
 ];
 
-// Набор предложений для генерации сообщений в комментариях
-
 const MESSAGES = [
   'Всё отлично!',
   'В целом всё неплохо. Но не всё.',
@@ -35,8 +31,6 @@ const MESSAGES = [
   'Как можно было поймать такой неудачный момент?!'
 ];
 
-// Набор имен для генерации имен авторов комментариев
-
 const NAMES = [
   'Евгений',
   'Дмитрий',
@@ -46,8 +40,6 @@ const NAMES = [
   'Роман',
   'Иван'
 ];
-
-// Функция создания описаний фотографий
 
 const generatePhotoId = createRandomNumberGenerator(1, PHOTO_COUNT);
 const genetatePhotoNumber = createRandomNumberGenerator(1, PHOTO_COUNT);
@@ -77,4 +69,4 @@ const createPhoto = () => ({
 
 const createPhotos = () => Array.from({ length: PHOTO_COUNT }, createPhoto);
 
-export {createPhotos};
+export { createPhotos };

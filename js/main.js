@@ -1,2 +1,1 @@
-import './data.js';
-import './loading-thumbnails.js';
+import './gallery.js';
