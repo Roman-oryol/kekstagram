@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="nouislider/nouislider.css">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <title>Кекстаграм</title>
   </head>
@@ -55,6 +56,7 @@
             <form
               class="img-upload__form"
               id="upload-select-image"
+              action="https://25.javascript.htmlacademy.pro/kekstagram"
               method="post"
               enctype="multipart/form-data"
               autocomplete="off"
@@ -66,6 +68,7 @@
                   id="upload-file"
                   class="img-upload__input visually-hidden"
                   name="filename"
+                  accept="image/png, image/jpeg"
                   required
                 />
                 <label
@@ -90,7 +93,7 @@
                       <input
                         type="text"
                         class="scale__control scale__control--value"
-                        value="55%"
+                        value="100%"
                         title="Image Scale"
                         name="scale"
                         readonly
@@ -235,16 +238,25 @@
 
                   <!-- Добавление хэш-тегов и комментария к изображению -->
                   <fieldset class="img-upload__text text">
-                    <input
-                      class="text__hashtags"
-                      name="hashtags"
-                      placeholder="#ХэшТег"
-                    />
-                    <textarea
-                      class="text__description"
-                      name="description"
-                      placeholder="Ваш комментарий..."
-                    ></textarea>
+                    <label class="text-label__hashtags">
+                      <input
+                        class="text__hashtags"
+                        type="text"
+                        name="hashtags"
+                        placeholder="#ХэшТег"
+                        maxlength="104"
+                      />
+                    </label>
+                    <div class="text-label__hashtags">
+                      <textarea
+                        class="text__description"
+                        type="text"
+                        name="description"
+                        placeholder="Ваш комментарий..."
+                        maxlength="140"
+                        data-pristine-maxlength-message="Комментарий не может быть длиннее 140 символов"
+                      ></textarea>
+                    </div>
                   </fieldset>
 
                   <!-- Кнопка для отправки данных на сервер -->
@@ -296,7 +308,7 @@
 
             <!-- Комментарии к изображению -->
             <div class="social__comment-count">
-              5 из <span class="comments-count">125</span> комментариев
+              <span class="comments-displayed"></span> из <span class="comments-count">125</span> комментариев
             </div>
             <ul class="social__comments">
               <li class="social__comment">
@@ -463,6 +475,8 @@
       </div>
     </template>
 
+    <script src="nouislider/nouislider.js"></script>
+    <script src="pristine/pristine.min.js"></script>
     <script src="js/main.js" type="module"></script>
   </body>
 </html>

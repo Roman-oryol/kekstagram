@@ -28,7 +28,9 @@ const renderThumbnails = (photos) => {
     const thumbnailElement = createThumbnails(photo);
     fragment.append(thumbnailElement);
   });
-
+  thumbnailsContainer
+    .querySelectorAll('.picture')
+    .forEach((photo) => photo.remove());
   thumbnailsContainer.append(fragment);
 };
 

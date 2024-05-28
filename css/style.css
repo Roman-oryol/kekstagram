@@ -534,8 +534,9 @@ main {
 
   width: 495px;
   height: 33px;
+  padding: 8px 18px;
 
-  font-size: 12px;
+  /* font-size: 21px; */
   line-height: 42px;
   text-align: center;
   color: #ffffff;
@@ -667,6 +668,25 @@ main {
 
   text-align: center;
   border: none;
+}
+
+.text__error {
+  /* position: absolute; */
+  /* right: 0;
+  bottom: -25px; */
+  /* left: 0; */
+  width: 70%;
+  margin: -15px auto 5px;
+  font-family: "Open Sans", "Arial", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  color: rgb(255, 42, 4);
+  background-color: #000000;
+}
+
+.text__hashtags--error {
+  position: relative;
 }
 
 .text__hashtags {
@@ -1203,7 +1223,7 @@ main {
   top: 0;
   right: 0;
   bottom: 0;
-  z-index: 1;
+  z-index: 2;
 
   background-color: rgba(0, 0, 0, 0.8);
 }

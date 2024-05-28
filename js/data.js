@@ -5,6 +5,7 @@ import {
 } from './util.js';
 
 const PHOTO_COUNT = 25;
+const MAX_COUNT_COMMENTS = 15;
 
 const DESCRIPTIONS = [
   'Летний чил на югах. #тай #отдых #лето #чил #travel #travelgram #summergram #chill',
@@ -63,7 +64,7 @@ const createPhoto = () => ({
   description: getRandomArrayElement(DESCRIPTIONS),
   likes: getRandomPositiveInteger(15, 200),
   comments: Array.from(
-    { length:  getRandomPositiveInteger(1, 6) }, createComment
+    { length:  getRandomPositiveInteger(1, MAX_COUNT_COMMENTS) }, createComment
   )
 });
 

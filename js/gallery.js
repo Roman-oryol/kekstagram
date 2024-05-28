@@ -1,4 +1,10 @@
 import { renderThumbnails } from './thumbnails.js';
-import { createPhotos } from './data.js';
+import { getData } from './api.js';
+import { addFiltering, filterPictures } from './filter.js';
 
-renderThumbnails(createPhotos());
+const onGetDataSuccess = (photos) => {
+  addFiltering(photos);
+  renderThumbnails(filterPictures());
+};
+
+getData(onGetDataSuccess);

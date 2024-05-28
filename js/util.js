@@ -1,3 +1,5 @@
+const ALERT_SHOW_TIME = 5000;
+
 // Функция получения случайного положительного целого числа из диапазона.
 // Максимум и минимум включаются
 
@@ -36,7 +38,6 @@ const getNonRepeatNumber = (length, rangeMin, rangeMax) => {
 
   return setOfIdentifiers;
 };
-getNonRepeatNumber(); // Чтобы не ругался линтер
 
 // Функция создания генератора неповторяющихся случайных чисел из диапазона
 
@@ -68,9 +69,73 @@ const removeChild = (parentElement) => {
   }
 };
 
+const isEscapeKey = (evt) => evt.key === 'Escape';
+
+const showAlert = (message) => {
+  const alertContainer = document.createElement('div');
+  alertContainer.style.zIndex = 100;
+  alertContainer.style.position = 'absolute';
+  alertContainer.style.top = 0;
+  alertContainer.style.right = 0;
+  alertContainer.style.left = 0;
+  alertContainer.style.padding = '5px 10px';
+  alertContainer.style.fontSize = '14px';
+  alertContainer.style.textAlign = 'center';
+  alertContainer.style.backgroundColor = '#e82e2e';
+  alertContainer.textContent = message;
+
+  document.body.append(alertContainer);
+
+  setTimeout(() => {
+    alertContainer.remove();
+  },
+  ALERT_SHOW_TIME
+  );
+};
+
+//Функция debounce для устранения дребезга:
+
+function debounce (callback, timeoutDelay = 500) {
+  let timeoutId;
+
+  return (...rest) => {
+    clearTimeout(timeoutId);
+
+    timeoutId = setTimeout(() => callback.apply(this, rest), timeoutDelay);
+  };
+}
+
+// Функция throttle для пропуска кадров:
+
+function throttle (callback, delayBetweenFrames) {
+  // Используем замыкания, чтобы время "последнего кадра" навсегда приклеилось
+  // к возвращаемой функции с условием, тогда мы его сможем перезаписывать
+  let lastTime = 0;
+
+  return (...rest) => {
+    // Получаем текущую дату в миллисекундах,
+    // чтобы можно было в дальнейшем
+    // вычислять разницу между кадрами
+    const now = new Date();
+
+    // Если время между кадрами больше задержки,
+    // вызываем наш колбэк и перезаписываем lastTime
+    // временем "последнего кадра"
+    if (now - lastTime >= delayBetweenFrames) {
+      callback.apply(this, rest);
+      lastTime = now;
+    }
+  };
+}
+
 export {
   getRandomPositiveInteger,
   getRandomArrayElement,
   createRandomNumberGenerator,
-  removeChild
+  removeChild,
+  isEscapeKey,
+  showAlert,
+  debounce,
+  throttle,
+  getNonRepeatNumber
 };
